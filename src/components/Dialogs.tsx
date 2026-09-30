@@ -59,11 +59,12 @@ export function ExportDialog({
       <p>{t.exportIntro}</p>
       <ol className="export-steps">
         <li>{t.exportStepClose}</li>
-        <li>{t.exportStepBackup}</li>
         <li>
-          {t.exportStepReplace}
+          {t.exportStepOpen}
           <code className="export-path">{t.exportPath}</code>
         </li>
+        <li>{t.exportStepBackup}</li>
+        <li>{t.exportStepReplace}</li>
       </ol>
     </Modal>
   )
