@@ -27,7 +27,8 @@ export function App() {
           className="hero-image"
           src={hero1920}
           srcSet={`${hero960} 960w, ${hero1920} 1920w, ${hero3840} 3840w`}
-          sizes="100vw"
+          // Cover on the full viewport: the drawn width follows the height on most screens (the image is 3.1:1).
+          sizes="max(100vw, 310vh)"
           alt=""
         />
         <div className="hero-inner">

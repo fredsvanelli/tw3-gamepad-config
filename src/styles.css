@@ -13,6 +13,10 @@
   --warning-bg: rgba(227, 179, 65, 0.12);
   --icon-body: #3a372d;
   --icon-text: #ece6d6;
+  --panel: rgba(22, 21, 15, 0.8);
+  --panel-strong: rgba(22, 21, 15, 0.98);
+  --panel-border: rgba(236, 230, 214, 0.12);
+  --table: rgba(33, 31, 24, 0.7);
   color-scheme: dark;
 }
 
@@ -32,6 +36,10 @@
     --warning-bg: rgba(227, 179, 65, 0.18);
     --icon-body: #3a372d;
     --icon-text: #f5f1e6;
+    --panel: rgba(245, 241, 230, 0.84);
+    --panel-strong: rgba(245, 241, 230, 0.98);
+    --panel-border: rgba(37, 34, 26, 0.12);
+    --table: rgba(255, 253, 247, 0.75);
     color-scheme: light;
   }
 }
@@ -51,22 +59,23 @@ button, select, input { font: inherit; color: inherit; }
   position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap;
 }
 
-.app { max-width: 1100px; margin: 0 auto; padding: 0 16px 48px; }
-
-/* The hero art is always dark, so its text keeps light colors in both themes. */
-.hero {
-  position: relative; width: 100%; height: clamp(180px, 32.3vw, 420px); overflow: hidden; background: #0b0b0a;
+/* The content sits on a translucent panel over the full-screen art. */
+.app {
+  width: calc(100% - 32px); max-width: 1100px; margin: 0 auto 48px; padding: 4px 24px 32px;
+  background: var(--panel); border: 1px solid var(--panel-border); border-radius: 16px;
+  backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
 }
+
+/* The art is always dark, so the header text keeps light colors in both themes. */
 .hero-image {
-  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 72% 0%;
+  position: fixed; inset: 0; z-index: -2; width: 100%; height: 100%;
+  object-fit: cover; object-position: center top;
 }
 .hero::after {
-  content: ''; position: absolute; inset: 0; pointer-events: none;
-  background: linear-gradient(90deg, rgba(11, 11, 10, 0.75) 0%, rgba(11, 11, 10, 0.2) 45%, rgba(11, 11, 10, 0) 60%),
-    linear-gradient(0deg, var(--bg) 0%, rgba(0, 0, 0, 0) 22%);
+  content: ''; position: fixed; inset: 0; z-index: -1; pointer-events: none; background: rgba(0, 0, 0, 0.2);
 }
 .hero-inner {
-  position: relative; z-index: 1; max-width: 1100px; height: 100%; margin: 0 auto; padding: 20px 16px;
+  max-width: 1100px; margin: 0 auto; padding: 28px 16px 24px;
   display: flex; justify-content: space-between; align-items: flex-start; gap: 12px;
 }
 .brand {
@@ -81,11 +90,7 @@ button, select, input { font: inherit; color: inherit; }
 }
 
 @media (max-width: 640px) {
-  .hero-image { object-position: 78% 20%; }
-  .hero::after {
-    background: linear-gradient(90deg, rgba(11, 11, 10, 0.85) 0%, rgba(11, 11, 10, 0.35) 60%, rgba(11, 11, 10, 0.1) 100%),
-      linear-gradient(0deg, var(--bg) 0%, rgba(0, 0, 0, 0) 30%);
-  }
+  .app { width: calc(100% - 16px); padding: 4px 12px 24px; }
 }
 
 /* Buttons */
@@ -101,7 +106,7 @@ button, select, input { font: inherit; color: inherit; }
 /* Toolbar */
 .toolbar {
   position: sticky; top: 0; z-index: 5; display: flex; flex-wrap: wrap; justify-content: space-between;
-  align-items: center; gap: 12px; padding: 12px 0; background: var(--bg); border-bottom: 1px solid var(--border);
+  align-items: center; gap: 12px; margin: 0 -24px; padding: 12px 24px; border-radius: 16px 16px 0 0; background: var(--panel-strong); border-bottom: 1px solid var(--border);
 }
 .toolbar-group { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
 .source { color: var(--muted); font-size: 14px; overflow-wrap: anywhere; }
@@ -124,7 +129,7 @@ button, select, input { font: inherit; color: inherit; }
 /* Table */
 .area { margin-top: 28px; }
 .area-title { font-size: 18px; margin: 0 0 8px; color: var(--accent); }
-.commands { width: 100%; border-collapse: collapse; background: var(--surface); border-radius: 10px; overflow: hidden; }
+.commands { width: 100%; border-collapse: collapse; background: var(--table); border-radius: 10px; overflow: hidden; }
 .commands thead th {
   text-align: left; font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em;
   color: var(--muted); padding: 8px 12px; border-bottom: 1px solid var(--border);
@@ -147,7 +152,7 @@ button, select, input { font: inherit; color: inherit; }
 .message-warning { color: var(--warning); }
 
 @media (max-width: 640px) {
-  .toolbar { position: static; }
+  .toolbar { position: static; margin: 0 -12px; padding: 12px; }
   .commands thead { display: none; }
   .commands, .commands tbody, .commands tr, .commands td, .commands th[scope='row'] { display: block; width: 100%; }
   .commands tr { padding: 10px 12px; border-top: 1px solid var(--border); }
