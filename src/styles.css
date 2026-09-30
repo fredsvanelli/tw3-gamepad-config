@@ -87,9 +87,15 @@ button, select, input { font: inherit; color: inherit; }
 .brand-tool { margin-top: 2px; font-weight: 600; }
 .tagline { margin: 6px 0 0; color: #d8d1bf; font-size: 15px; text-shadow: 0 1px 8px rgba(0, 0, 0, 0.8); }
 .language select {
-  background: rgba(20, 19, 15, 0.75); color: #ece6d6; border: 1px solid rgba(236, 230, 214, 0.3);
-  border-radius: 6px; padding: 6px 8px; backdrop-filter: blur(4px);
+  appearance: none; -webkit-appearance: none; cursor: pointer;
+  /* The native arrow sits at a different spot in each browser, so draw one with even padding. */
+  background: rgba(20, 19, 15, 0.75)
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%23ece6d6' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")
+    no-repeat right 10px center;
+  color: #ece6d6; border: 1px solid rgba(236, 230, 214, 0.3);
+  border-radius: 6px; padding: 6px 30px 6px 10px; backdrop-filter: blur(4px);
 }
+.language select option { background: #211f18; color: #ece6d6; }
 
 @media (max-width: 640px) {
   .app { width: calc(100% - 16px); padding: 4px 12px 24px; }
