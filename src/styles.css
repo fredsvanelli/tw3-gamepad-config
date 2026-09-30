@@ -156,10 +156,19 @@ button, select, input { font: inherit; color: inherit; }
 @media (max-width: 640px) {
   .toolbar { position: static; margin: 0 -12px; padding: 12px; }
   .commands thead { display: none; }
-  .commands, .commands tbody, .commands tr, .commands td, .commands th[scope='row'] { display: block; width: 100%; }
-  .commands tr { padding: 10px 12px; border-top: 1px solid var(--border); }
+  .commands, .commands tbody { display: block; width: 100%; }
+  /* Name and press type stack on the left, the select sits beside them. */
+  .commands tr {
+    display: grid; grid-template-columns: minmax(0, 1fr) minmax(132px, 45%); column-gap: 12px; align-items: center;
+    padding: 10px 12px; border-top: 1px solid var(--border);
+  }
   .commands tbody tr:first-child { border-top: 0; }
-  .commands td, .commands th[scope='row'] { padding: 2px 0; border: 0; }
+  .commands td, .commands th[scope='row'] { width: auto; padding: 0; border: 0; }
+  .command-name { grid-column: 1; grid-row: 1; }
+  .command-press { grid-column: 1; grid-row: 2; }
+  .command-button { display: contents; }
+  .command-button > .select-trigger { grid-column: 2; grid-row: 1 / span 2; }
+  .command-messages { grid-column: 1 / -1; grid-row: 3; }
 }
 
 /* Select */
@@ -170,6 +179,7 @@ button, select, input { font: inherit; color: inherit; }
 .select-trigger:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
 .select-trigger[data-status='conflict'] { border: 2px solid var(--conflict); }
 .select-trigger[data-status='warning'] { border: 2px solid var(--warning); }
+.select-trigger > span:first-child { min-width: 0; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
 .select-chevron { color: var(--muted); }
 .select-content {
   z-index: 20; min-width: var(--radix-select-trigger-width); max-height: var(--radix-select-content-available-height);
