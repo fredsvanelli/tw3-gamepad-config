@@ -135,10 +135,15 @@ describe('import', () => {
 })
 
 describe('conflicts', () => {
-  it('flags two Commands on one Button and Press Type in a shared Game Context', () => {
-    const conflicts = conflictsOf(defaultText, { potionUpper: 'IK_Pad_Y_TRIANGLE' })
-    expect(conflicts.get('potionUpper')?.map((c) => c.otherId)).toContain('attackHeavy')
-    expect(conflicts.get('attackHeavy')?.map((c) => c.otherId)).toContain('potionUpper')
+  it('flags two Commands of one Area on one Button and Press Type in a shared Game Context', () => {
+    const conflicts = conflictsOf(defaultText, { dodge: 'IK_Pad_Y_TRIANGLE' })
+    expect(conflicts.get('dodge')?.map((c) => c.otherId)).toContain('attackHeavy')
+    expect(conflicts.get('attackHeavy')?.map((c) => c.otherId)).toContain('dodge')
+  })
+
+  it('ignores Commands of different Areas', () => {
+    // Drink upper potion is General, Strong attack is Combat.
+    expect(conflictsOf(defaultText, { potionUpper: 'IK_Pad_Y_TRIANGLE' }).size).toBe(0)
   })
 
   it('ignores a different Press Type on the same Button', () => {
@@ -146,8 +151,8 @@ describe('conflicts', () => {
   })
 
   it('counts a double tap as a tap', () => {
-    expect(conflictsOf(defaultText, { callHorse: 'IK_Pad_X_SQUARE' }).get('callHorse')?.map((c) => c.otherId))
-      .toContain('attackLight')
+    expect(conflictsOf(defaultText, { callHorse: 'IK_Pad_B_CIRCLE' }).get('callHorse')?.map((c) => c.otherId))
+      .toContain('jump')
   })
 
   it('ignores Commands that never share a Game Context', () => {
@@ -162,6 +167,6 @@ describe('conflicts', () => {
   it('accepts Allowed Pairs on any Button', () => {
     expect(allowed.has('altQuen+dodge')).toBe(true)
     expect(conflictsOf(defaultText, { dodge: 'IK_Pad_LeftShoulder', altQuen: 'IK_Pad_LeftShoulder' }).get('dodge')
-      ?.map((c) => c.otherId)).not.toContain('altQuen')
+      ?.map((c) => c.otherId) ?? []).not.toContain('altQuen')
   })
 })

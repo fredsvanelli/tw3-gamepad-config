@@ -55,7 +55,7 @@ _Avoid_: required command, mandatory
 ### Validation
 
 **Conflict**:
-Two Commands that share a Button and a Press Type and both appear in at least one Game Context, unless they form an Allowed Pair. A Conflict blocks export.
+Two Commands of the same Area that share a Button and a Press Type and both appear in at least one Game Context, unless they form an Allowed Pair. Commands of different Areas never conflict. A Conflict blocks export.
 _Avoid_: clash, collision, duplicate
 
 **Allowed Pair**:

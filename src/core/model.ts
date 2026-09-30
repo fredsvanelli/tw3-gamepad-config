@@ -242,12 +242,14 @@ export function findConflicts(
   allowedPairs: Set<string>,
   contextRank: (context: string) => number,
 ): Map<string, Conflict[]> {
+  const area = new Map(commands.map((c) => [c.id, c.area]))
   const found = new Map<string, Map<string, string>>()
   for (const [context, slots] of sharedSlots(contexts, assignment, commands)) {
     for (const ids of slots.values()) {
       for (const a of ids) {
         for (const b of ids) {
-          if (a === b || allowedPairs.has(pairKey(a, b))) continue
+          // Commands only conflict with Commands of their own Area.
+          if (a === b || area.get(a) !== area.get(b) || allowedPairs.has(pairKey(a, b))) continue
           const byOther = found.get(a) ?? new Map<string, string>()
           const current = byOther.get(b)
           if (current === undefined || contextRank(context) < contextRank(current)) byOther.set(b, context)
