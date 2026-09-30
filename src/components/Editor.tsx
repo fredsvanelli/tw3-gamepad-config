@@ -6,6 +6,7 @@ import type { Action, Derived, State } from '../state'
 import { ButtonSelect } from './ButtonSelect'
 import { ExportDialog, Modal } from './Dialogs'
 import { FileNames } from './FileNames'
+import { DownloadIcon, ResetIcon, UploadIcon } from './Icons'
 
 interface Props {
   state: State
@@ -150,6 +151,7 @@ export function Editor({ state, dispatch, derived, t }: Props) {
             ))}
           </div>
           <button type="button" className="btn" onClick={() => fileInput.current?.click()}>
+            <UploadIcon />
             {t.import}
           </button>
           <input
@@ -162,17 +164,14 @@ export function Editor({ state, dispatch, derived, t }: Props) {
             }}
           />
           <button type="button" className="btn" onClick={() => setDialog('restore')}>
+            <ResetIcon />
             {t.restoreDefault}
           </button>
-          <button
-            type="button"
-            className={`conflict-count ${conflictIds.length ? 'has-conflicts' : ''}`}
-            onClick={scrollToFirstConflict}
-            disabled={!conflictIds.length}
-            aria-live="polite"
-          >
-            {conflictIds.length ? t.conflictCount(conflictIds.length) : t.noConflicts}
-          </button>
+          {conflictIds.length > 0 && (
+            <button type="button" className="conflict-count" onClick={scrollToFirstConflict} role="alert">
+              {t.conflictCount(conflictIds.length)}
+            </button>
+          )}
           <button
             type="button"
             className="btn btn-primary"
@@ -180,6 +179,7 @@ export function Editor({ state, dispatch, derived, t }: Props) {
             disabled={conflictIds.length > 0}
             title={conflictIds.length ? t.exportBlocked : undefined}
           >
+            <DownloadIcon />
             {t.export}
           </button>
         </div>
