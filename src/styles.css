@@ -13,8 +13,6 @@
   --warning-bg: rgba(227, 179, 65, 0.12);
   --icon-body: #3a372d;
   --icon-text: #ece6d6;
-  --art-body: #d9d6ce;
-  --art-detail: #9c988d;
   color-scheme: dark;
 }
 
@@ -34,8 +32,6 @@
     --warning-bg: rgba(227, 179, 65, 0.18);
     --icon-body: #3a372d;
     --icon-text: #f5f1e6;
-    --art-body: #3a372d;
-    --art-detail: #8f8878;
     color-scheme: light;
   }
 }
@@ -103,13 +99,12 @@ button, select, input { font: inherit; color: inherit; }
 .landing-choice:hover, .landing-choice:focus-visible { border-color: var(--accent); transform: translateY(-2px); outline: none; }
 .landing-choice-label { font-size: 22px; font-weight: 700; }
 .landing-hint { color: var(--muted); margin-top: 24px; }
-.controller-art { width: 100%; max-width: 420px; height: auto; }
-.art-body { fill: var(--art-body); }
-.art-shoulder { fill: var(--art-detail); }
-.art-panel, .art-stick-well { fill: var(--art-detail); opacity: 0.45; }
-.art-stick { fill: var(--icon-body); }
-.art-detail { fill: var(--art-detail); }
-.art-face { fill: var(--icon-body); }
+/* The photos have a white background, so they sit on a white stage in both themes. */
+.controller-stage {
+  display: flex; align-items: center; justify-content: center; width: 100%;
+  padding: 24px; background: #fff; border-radius: 12px;
+}
+.controller-photo { width: 100%; max-width: 420px; height: auto; }
 
 @media (max-width: 640px) {
   .landing-choices { grid-template-columns: 1fr; }
