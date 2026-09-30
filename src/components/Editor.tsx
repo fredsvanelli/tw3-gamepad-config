@@ -97,7 +97,7 @@ export function Editor({ state, dispatch, derived, t }: Props) {
           {command.essential && <span className="badge">{t.essential}</span>}
         </th>
         <td className="command-press">
-          <span className={`press press-${command.press}`}>{command.press === 'hold' ? t.hold : t.tap}</span>
+          <span className={`press press-${command.press}`}>{t[command.press]}</span>
         </td>
         <td className="command-button">
           <ButtonSelect

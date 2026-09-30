@@ -146,7 +146,7 @@ button, select, input { font: inherit; color: inherit; }
   border: 1px solid var(--border); color: var(--muted); font-weight: 400; white-space: nowrap;
 }
 .press { font-size: 13px; color: var(--muted); }
-.press-hold { color: var(--text); }
+.press-hold, .press-doubleTap { color: var(--text); }
 .command-messages { list-style: none; margin: 6px 0 0; padding: 0; font-size: 13px; }
 .message-conflict { color: var(--conflict); }
 .message-warning { color: var(--warning); }

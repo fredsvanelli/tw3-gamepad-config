@@ -145,6 +145,11 @@ describe('conflicts', () => {
     expect(conflictsOf(defaultText, { potionUpperSwap: 'IK_Pad_LeftShoulder' }).size).toBe(0)
   })
 
+  it('counts a double tap as a tap', () => {
+    expect(conflictsOf(defaultText, { callHorse: 'IK_Pad_X_SQUARE' }).get('callHorse')?.map((c) => c.otherId))
+      .toContain('attackLight')
+  })
+
   it('ignores Commands that never share a Game Context', () => {
     // Gallop only exists on horseback, Whirl never does.
     expect(conflictsOf(defaultText, { gallop: 'IK_Pad_X_SQUARE' }).size).toBe(0)

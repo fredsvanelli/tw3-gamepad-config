@@ -33,7 +33,7 @@ One of the 20 physical gamepad inputs the Settings File names with `IK_Pad_*`, o
 _Avoid_: key (reserved for keyboard), input
 
 **Press Type**:
-Whether a Command fires on a tap or on a hold. Fixed per Command by the game.
+Whether a Command fires on a tap, a double tap or a hold. Fixed per Command by the game. The Settings File cannot tell a double tap from a tap, so a double tap Command conflicts with tap Commands.
 _Avoid_: state, duration
 
 **Layout**:

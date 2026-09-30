@@ -1,6 +1,6 @@
 import { isButton, NONE_KEY, type Button } from './buttons'
 import type { BindingLine, SettingsFile } from './settingsFile'
-import type { Command, PressType } from '../data/commands'
+import type { Command } from '../data/commands'
 
 export type Assignment = Record<string, Button | null>
 
@@ -199,14 +199,14 @@ function sharedSlots(
   assignment: Assignment,
   commands: Command[],
 ): Map<string, Map<string, string[]>> {
-  const press = new Map<string, PressType>(commands.map((c) => [c.id, c.press]))
+  const holds = new Map<string, boolean>(commands.map((c) => [c.id, c.press === 'hold']))
   const byContext = new Map<string, Map<string, string[]>>()
   for (const [commandId, set] of contexts) {
     const button = assignment[commandId]
     if (!button) continue
     for (const context of set) {
       const slots = byContext.get(context) ?? new Map<string, string[]>()
-      const slot = `${button}|${press.get(commandId)}`
+      const slot = `${button}|${holds.get(commandId) ? 'hold' : 'tap'}`
       slots.set(slot, [...(slots.get(slot) ?? []), commandId])
       byContext.set(context, slots)
     }

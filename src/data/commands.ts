@@ -16,7 +16,11 @@ export const AREAS = [
 ] as const
 export type Area = (typeof AREAS)[number]
 
-export type PressType = 'tap' | 'hold'
+/**
+ * Double tap is a label only: the Settings File writes it as a tap and the game
+ * tells the two apart, so for Conflicts it counts as a tap.
+ */
+export type PressType = 'tap' | 'doubleTap' | 'hold'
 
 /**
  * One Action a Command owns. `defaultButton` narrows it to the Bindings that sit
@@ -125,7 +129,7 @@ export const COMMANDS: Command[] = [
     names: { en: 'Secondary interaction', pt: 'Interação secundária', es: 'Interacción secundaria' } },
   { id: 'witcherSenses', area: 'exploration', press: 'tap', actions: ['Focus'],
     names: { en: 'Witcher Senses', pt: 'Sentidos de Bruxo', es: 'Sentidos de brujo' } },
-  { id: 'callHorse', area: 'exploration', press: 'tap', actions: ['SpawnHorse'],
+  { id: 'callHorse', area: 'exploration', press: 'doubleTap', actions: ['SpawnHorse'],
     names: { en: 'Call Roach', pt: 'Chamar Carpeado', es: 'Llamar a Sardinilla' } },
 
   // Combat
