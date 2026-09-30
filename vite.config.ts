@@ -9,6 +9,9 @@ export default defineConfig({
     VitePWA({
       registerType: 'prompt',
       includeAssets: ['favicon.svg'],
+      workbox: {
+        globPatterns: ['**/*.{js,css,html,svg,png,ico,webp}'],
+      },
       manifest: {
         name: 'TW3 Gamepad Config',
         short_name: 'TW3 Pad',
