@@ -45,7 +45,7 @@ A heading that groups Commands in the table for reading (General, Exploration, C
 _Avoid_: category, context (reserved for Game Context)
 
 **Mirrored Command**:
-A Ciri Action that has a Geralt equivalent (`CiriDodge` for `Dodge`) and always takes the Button of that Geralt Command. It never shows as its own row.
+An Action that always takes the Button of another Command and never shows as its own row: a Ciri Action with a Geralt equivalent (`CiriDodge` follows Dodge), or Spare, which follows Cast Sign.
 _Avoid_: linked command, copy
 
 **Essential Command**:

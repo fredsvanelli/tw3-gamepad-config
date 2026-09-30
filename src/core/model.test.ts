@@ -97,6 +97,12 @@ describe('export', () => {
     expect(rebound).toBe(defaultText)
   })
 
+  it('writes Spare on the Button of Cast sign', () => {
+    const out = exportWith(defaultText, { castSign: 'IK_Pad_LeftShoulder' })
+    expect(out).not.toContain('IK_Pad_RightTrigger=(Action=Spare)')
+    expect(out).toContain('IK_Pad_LeftShoulder=(Action=Spare)')
+  })
+
   it('keeps the two sheathe Bindings apart when the swords swap sides', () => {
     const swapped = exportWith(defaultText, {
       steelSword: 'IK_Pad_DigitRight',

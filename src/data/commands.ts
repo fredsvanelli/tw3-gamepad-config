@@ -76,7 +76,8 @@ const INTERACTIONS = [
 ]
 
 // Ciri Actions with a Geralt equivalent are listed inside the Geralt Command
-// (Mirrored Commands), so they always share its Button.
+// (Mirrored Commands), so they always share its Button. Spare follows Cast sign
+// the same way.
 export const COMMANDS: Command[] = [
   // General
   { id: 'pauseMenu', area: 'general', press: 'tap', essential: true, actions: ['IngameMenu'],
@@ -149,7 +150,7 @@ export const COMMANDS: Command[] = [
     names: { en: 'Parry / counterattack', pt: 'Aparar / contra-atacar', es: 'Bloquear / contraatacar' } },
   { id: 'alternate', area: 'combat', press: 'tap', actions: ['Alternate'],
     names: { en: 'Alternate modifier', pt: 'Modificador alternativo', es: 'Modificador alternativo' } },
-  { id: 'castSign', area: 'combat', press: 'tap', essential: true, actions: ['CastSign', 'CiriSpecialAttack'],
+  { id: 'castSign', area: 'combat', press: 'tap', essential: true, actions: ['CastSign', 'CiriSpecialAttack', 'Spare'],
     names: { en: 'Cast sign', pt: 'Lançar sinal', es: 'Lanzar señal' } },
   { id: 'castSignHold', area: 'combat', press: 'hold', actions: ['CastSignHold'],
     names: { en: 'Alternate sign', pt: 'Sinal alternativo', es: 'Señal alternativa' } },
@@ -163,8 +164,6 @@ export const COMMANDS: Command[] = [
     names: { en: 'Aim bomb / crossbow', pt: 'Mirar bomba / besta', es: 'Apuntar bomba / ballesta' } },
   { id: 'throwCancel', area: 'combat', press: 'tap', actions: ['ThrowCastAbort'],
     names: { en: 'Cancel aiming', pt: 'Cancelar mira', es: 'Cancelar apuntado' } },
-  { id: 'spare', area: 'combat', press: 'tap', actions: ['Spare'],
-    names: { en: 'Spare opponent', pt: 'Poupar oponente', es: 'Perdonar al oponente' } },
   { id: 'steelSword', area: 'combat', press: 'tap',
     actions: ['SteelSword', 'ComboDigitLeft', { action: 'CiriDrawWeapon', defaultButton: 'IK_Pad_DigitLeft' }],
     names: { en: 'Draw steel sword', pt: 'Sacar espada de aço', es: 'Desenvainar espada de acero' } },
