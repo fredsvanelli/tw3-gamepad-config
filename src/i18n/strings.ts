@@ -8,8 +8,7 @@ export const LOCALES: { id: Locale; label: string }[] = [
 
 const en = {
   appTitle: 'TW3 Gamepad Config',
-  pickLayout: 'Pick your controller',
-  pickLayoutHint: 'For the PC version, with a DualSense or Xbox controller.',
+  platformHint: 'For the PC version, with a DualSense or Xbox controller.',
   playstation: 'PlayStation',
   xbox: 'Xbox',
   language: 'Language',
@@ -53,7 +52,6 @@ const en = {
   updateAvailable: 'A new version is available.',
   reload: 'Reload',
   dismiss: 'Dismiss',
-  changeLayout: 'Change controller',
   areas: {
     general: 'General',
     exploration: 'Exploration',
@@ -91,8 +89,7 @@ export type Strings = typeof en
 
 const pt: Strings = {
   appTitle: 'TW3 Gamepad Config',
-  pickLayout: 'Escolha seu controle',
-  pickLayoutHint: 'Para a versão de PC, com controle DualSense ou Xbox.',
+  platformHint: 'Para a versão de PC, com controle DualSense ou Xbox.',
   playstation: 'PlayStation',
   xbox: 'Xbox',
   language: 'Idioma',
@@ -136,7 +133,6 @@ const pt: Strings = {
   updateAvailable: 'Há uma nova versão disponível.',
   reload: 'Recarregar',
   dismiss: 'Fechar',
-  changeLayout: 'Trocar controle',
   areas: {
     general: 'Geral',
     exploration: 'Exploração',
@@ -172,8 +168,7 @@ const pt: Strings = {
 
 const es: Strings = {
   appTitle: 'TW3 Gamepad Config',
-  pickLayout: 'Elige tu mando',
-  pickLayoutHint: 'Para la versión de PC, con mando DualSense o Xbox.',
+  platformHint: 'Para la versión de PC, con mando DualSense o Xbox.',
   playstation: 'PlayStation',
   xbox: 'Xbox',
   language: 'Idioma',
@@ -217,7 +212,6 @@ const es: Strings = {
   updateAvailable: 'Hay una nueva versión disponible.',
   reload: 'Recargar',
   dismiss: 'Cerrar',
-  changeLayout: 'Cambiar mando',
   areas: {
     general: 'General',
     exploration: 'Exploración',

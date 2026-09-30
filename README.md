@@ -4,7 +4,7 @@ A browser tool for remapping gamepad buttons in The Witcher 3: Wild Hunt (PC, ne
 
 ## How it works
 
-1. Pick PlayStation or Xbox. The choice only changes the button labels; the exported file is the same for both.
+1. Switch between PlayStation and Xbox labels in the toolbar (Xbox by default). The choice only changes the button labels; the exported file is the same for both.
 2. Change the button of any command. Two commands on the same button, with the same press type, in a situation where both apply, turn red and block the export.
 3. Export, close the game, back up your current file, and replace `C:\Users\<your_user>\Documents\The Witcher 3\input.settings`.
 

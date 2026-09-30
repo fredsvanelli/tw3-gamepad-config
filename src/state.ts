@@ -21,7 +21,7 @@ const allowedPairs = computeAllowedPairs(defaultFile, defaultOwnership, COMMANDS
 const defaultRead = readAssignment(defaultFile, defaultOwnership, COMMANDS)
 
 export interface State {
-  layout: Layout | null
+  layout: Layout
   locale: Locale
   /** Text of the imported Settings File; null means the bundled default. */
   baseText: string | null
@@ -33,7 +33,7 @@ export interface State {
 }
 
 export type Action =
-  | { type: 'pickLayout'; layout: Layout | null }
+  | { type: 'pickLayout'; layout: Layout }
   | { type: 'setLocale'; locale: Locale }
   | { type: 'setButton'; commandId: string; button: Button | null }
   | { type: 'load'; text: string; name: string }
@@ -70,7 +70,7 @@ const LOCALE_KEY = 'tw3gc.locale'
 
 function initialState(): State {
   const fresh: State = {
-    layout: null,
+    layout: 'xbox',
     locale: detectLocale(),
     baseText: null,
     sourceName: null,
@@ -84,7 +84,7 @@ function initialState(): State {
     if (saved) {
       return {
         ...fresh,
-        layout: saved.layout ?? null,
+        layout: saved.layout ?? 'xbox',
         baseText: saved.baseText ?? null,
         sourceName: saved.sourceName ?? null,
         // Commands added in a later version start with their default Button.

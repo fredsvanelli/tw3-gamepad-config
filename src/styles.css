@@ -70,10 +70,11 @@ button, select, input { font: inherit; color: inherit; }
   display: flex; justify-content: space-between; align-items: flex-start; gap: 12px;
 }
 .brand {
-  background: none; border: 0; padding: 0; cursor: pointer; text-align: left;
+  margin: 0;
   font-weight: 800; font-size: clamp(22px, 3.2vw, 40px); line-height: 1.1; letter-spacing: 0.02em;
   color: #e8c469; text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8);
 }
+.tagline { margin: 6px 0 0; color: #d8d1bf; font-size: 15px; text-shadow: 0 1px 8px rgba(0, 0, 0, 0.8); }
 .language select {
   background: rgba(20, 19, 15, 0.75); color: #ece6d6; border: 1px solid rgba(236, 230, 214, 0.3);
   border-radius: 6px; padding: 6px 8px; backdrop-filter: blur(4px);
@@ -85,29 +86,6 @@ button, select, input { font: inherit; color: inherit; }
     background: linear-gradient(90deg, rgba(11, 11, 10, 0.85) 0%, rgba(11, 11, 10, 0.35) 60%, rgba(11, 11, 10, 0.1) 100%),
       linear-gradient(0deg, var(--bg) 0%, rgba(0, 0, 0, 0) 30%);
   }
-}
-
-/* Landing */
-.landing { text-align: center; padding: 40px 0; }
-.landing-title { font-size: 28px; margin: 0 0 28px; }
-.landing-choices { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
-.landing-choice {
-  display: flex; flex-direction: column; align-items: center; gap: 16px;
-  padding: 32px 24px; background: var(--surface); border: 2px solid var(--border); border-radius: 16px;
-  cursor: pointer; transition: border-color 0.15s, transform 0.15s;
-}
-.landing-choice:hover, .landing-choice:focus-visible { border-color: var(--accent); transform: translateY(-2px); outline: none; }
-.landing-choice-label { font-size: 22px; font-weight: 700; }
-.landing-hint { color: var(--muted); margin-top: 24px; }
-/* The photos have a white background, so they sit on a white stage in both themes. */
-.controller-stage {
-  display: flex; align-items: center; justify-content: center; width: 100%;
-  padding: 24px; background: #fff; border-radius: 12px;
-}
-.controller-photo { width: 100%; max-width: 420px; height: auto; }
-
-@media (max-width: 640px) {
-  .landing-choices { grid-template-columns: 1fr; }
 }
 
 /* Buttons */

@@ -1,6 +1,5 @@
 import { useRef, useState, type Dispatch } from 'react'
 import { AREAS, COMMANDS, type Command } from '../data/commands'
-import type { Layout } from '../core/buttons'
 import { checkImport, decodeFile, parseSettings } from '../core/settingsFile'
 import { contextLabel, type Strings } from '../i18n/strings'
 import type { Action, Derived, State } from '../state'
@@ -37,7 +36,7 @@ function download(text: string) {
 }
 
 export function Editor({ state, dispatch, derived, t }: Props) {
-  const layout = state.layout as Layout
+  const layout = state.layout
   const fileInput = useRef<HTMLInputElement>(null)
   const [dialog, setDialog] = useState<'export' | 'restore' | 'replace' | null>(null)
   const [pending, setPending] = useState<{ text: string; name: string } | null>(null)

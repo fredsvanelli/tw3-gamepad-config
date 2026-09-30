@@ -1,7 +1,6 @@
 import { useEffect } from 'react'
 import { useRegisterSW } from 'virtual:pwa-register/react'
 import { Editor } from './components/Editor'
-import { Landing } from './components/Landing'
 import { LOCALES, STRINGS } from './i18n/strings'
 import { useAppState } from './state'
 import hero960 from './assets/hero-960.webp'
@@ -32,14 +31,10 @@ export function App() {
           alt=""
         />
         <div className="hero-inner">
-          <button
-            type="button"
-            className="brand"
-            onClick={() => dispatch({ type: 'pickLayout', layout: null })}
-            title={state.layout ? t.changeLayout : undefined}
-          >
-            {t.appTitle}
-          </button>
+          <div>
+            <h1 className="brand">{t.appTitle}</h1>
+            <p className="tagline">{t.platformHint}</p>
+          </div>
           <label className="language">
             <span className="visually-hidden">{t.language}</span>
             <select value={state.locale} onChange={(e) => dispatch({ type: 'setLocale', locale: e.target.value as Locale })}>
@@ -54,11 +49,7 @@ export function App() {
       </header>
 
       <div className="app">
-        {state.layout ? (
-          <Editor state={state} dispatch={dispatch} derived={derived} t={t} />
-        ) : (
-          <Landing t={t} onPick={(layout) => dispatch({ type: 'pickLayout', layout })} />
-        )}
+        <Editor state={state} dispatch={dispatch} derived={derived} t={t} />
 
         {needRefresh && (
           <div className="update-toast" role="status">
