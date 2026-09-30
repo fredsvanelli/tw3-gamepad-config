@@ -201,6 +201,10 @@ button, select, input { font: inherit; color: inherit; }
 .dialog-body p { margin: 0 0 12px; }
 .dialog-actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 20px; }
 .export-steps { padding-left: 20px; margin: 0; display: grid; gap: 8px; }
+.file-name {
+  padding: 1px 6px; border-radius: 4px; background: var(--surface-2); border: 1px solid var(--border);
+  color: var(--accent); font-family: ui-monospace, Consolas, monospace; font-size: 0.9em; white-space: nowrap;
+}
 .export-path {
   display: block; margin-top: 6px; padding: 8px 10px; border-radius: 6px; background: var(--surface-2);
   font-family: ui-monospace, Consolas, monospace; font-size: 13px; overflow-wrap: anywhere; user-select: all;

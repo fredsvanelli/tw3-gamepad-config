@@ -1,6 +1,7 @@
 import * as Dialog from '@radix-ui/react-dialog'
 import type { ReactNode } from 'react'
 import type { Strings } from '../i18n/strings'
+import { FileNames } from './FileNames'
 
 interface ModalProps {
   open: boolean
@@ -63,8 +64,12 @@ export function ExportDialog({
           {t.exportStepOpen}
           <code className="export-path">{t.exportPath}</code>
         </li>
-        <li>{t.exportStepBackup}</li>
-        <li>{t.exportStepReplace}</li>
+        <li>
+          <FileNames text={t.exportStepBackup} />
+        </li>
+        <li>
+          <FileNames text={t.exportStepReplace} />
+        </li>
       </ol>
     </Modal>
   )

@@ -5,6 +5,7 @@ import { contextLabel, type Strings } from '../i18n/strings'
 import type { Action, Derived, State } from '../state'
 import { ButtonSelect } from './ButtonSelect'
 import { ExportDialog, Modal } from './Dialogs'
+import { FileNames } from './FileNames'
 
 interface Props {
   state: State
@@ -186,7 +187,9 @@ export function Editor({ state, dispatch, derived, t }: Props) {
 
       {notice && (
         <div className={`notice notice-${notice.kind}`} role={notice.kind === 'error' ? 'alert' : 'status'}>
-          <span>{notice.text}</span>
+          <span>
+            <FileNames text={notice.text} />
+          </span>
           <button type="button" className="btn btn-small" onClick={() => setNotice(null)}>
             {t.dismiss}
           </button>
