@@ -33,7 +33,10 @@ export function App() {
         />
         <div className="hero-inner">
           <div>
-            <h1 className="brand">{t.appTitle}</h1>
+            <h1 className="brand">
+              <span className="brand-game">The Witcher 3: Wild Hunt - Remastered</span>
+              <span className="brand-tool">Gamepad Config</span>
+            </h1>
             <p className="tagline">{t.platformHint}</p>
           </div>
           <label className="language">

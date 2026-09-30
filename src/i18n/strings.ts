@@ -7,7 +7,6 @@ export const LOCALES: { id: Locale; label: string }[] = [
 ]
 
 const en = {
-  appTitle: 'TW3 Gamepad Config',
   platformHint: 'For the PC version, with a DualSense or Xbox controller.',
   playstation: 'PlayStation',
   xbox: 'Xbox',
@@ -88,7 +87,6 @@ const en = {
 export type Strings = typeof en
 
 const pt: Strings = {
-  appTitle: 'TW3 Gamepad Config',
   platformHint: 'Para a versão de PC, com controle DualSense ou Xbox.',
   playstation: 'PlayStation',
   xbox: 'Xbox',
@@ -167,7 +165,6 @@ const pt: Strings = {
 }
 
 const es: Strings = {
-  appTitle: 'TW3 Gamepad Config',
   platformHint: 'Para la versión de PC, con mando DualSense o Xbox.',
   playstation: 'PlayStation',
   xbox: 'Xbox',

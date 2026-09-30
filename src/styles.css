@@ -83,6 +83,8 @@ button, select, input { font: inherit; color: inherit; }
   font-weight: 800; font-size: clamp(22px, 3.2vw, 40px); line-height: 1.1; letter-spacing: 0.02em;
   color: #e8c469; text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8);
 }
+.brand-game, .brand-tool { display: block; }
+.brand-tool { margin-top: 2px; }
 .tagline { margin: 6px 0 0; color: #d8d1bf; font-size: 15px; text-shadow: 0 1px 8px rgba(0, 0, 0, 0.8); }
 .language select {
   background: rgba(20, 19, 15, 0.75); color: #ece6d6; border: 1px solid rgba(236, 230, 214, 0.3);
